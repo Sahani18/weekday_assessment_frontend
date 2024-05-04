@@ -4,6 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px; /* Adjust gap to fit your design */
+}
 
 .logo {
   height: 6em;

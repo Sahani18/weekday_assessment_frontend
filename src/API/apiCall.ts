@@ -1,26 +1,19 @@
-const myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-
-const body = JSON.stringify({
-  limit: 10,
-  offset: 0,
-});
-
-const requestOptions = {
-  method: "POST",
-  headers: myHeaders,
-  body,
-};
-
-export const getJobs = async () => {
+export const getJobs = async (offset: number = 0) => {
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const body = JSON.stringify({
+    limit: 10,
+    offset: offset,
+  });
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body,
+  };
   try {
-    const response = await fetch(
-      "https://api.weekday.technology/adhoc/getSampleJdJSON",
-      requestOptions
-    );
-    const data = await response.json();
-    return console.log(data);
+    const response = await fetch(import.meta.env.VITE_API_URL, requestOptions);
+    return await response.json();
   } catch (error) {
-    return console.error(error);
+    return console.error("Something went wrong", error);
   }
 };

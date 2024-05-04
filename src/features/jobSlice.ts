@@ -1,12 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-interface Job {}
-
-interface InitialState {
-  jobs: Job[];
-}
-
-const initialState: InitialState = {
+const initialState: any = {
   jobs: [],
 };
 
@@ -14,8 +8,8 @@ const jobReducer = createSlice({
   name: "JobSlice",
   initialState,
   reducers: {
-    addJob: (state: { jobs: Job[] }, action: PayloadAction<Job>) => {
-      state.jobs.push(action.payload);
+    addJob: (state, action) => {
+      action?.payload.forEach((item: Object) => state?.jobs.push(item));
     },
   },
 });
