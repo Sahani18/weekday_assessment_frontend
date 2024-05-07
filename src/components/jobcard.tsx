@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import icons from "../assets/tick.svg";
 
 function Jobcard({ item }: any) {
   const [jobdata, setJobdata] = useState({
@@ -17,32 +18,41 @@ function Jobcard({ item }: any) {
     salaryCurrencyCode: "USD",
   });
   return (
-    <div
-      style={{
-        height: "500px",
-        width: "300px",
-        backgroundColor: "lavender",
-        borderRadius: "5px",
-        padding: "10px",
-        border:"3px",
-        borderColor:"black",
-        textAlign: "start",
-      }}
-    >
-       
+    <div className="jobCard">
       <p
         style={{
           padding: "5px",
           borderRadius: 12,
           backgroundColor: "whitesmoke",
-          width:"150px"
-
+          width: "150px",
         }}
       >
         Posted 10 days ago
       </p>
-
-      <p>{item?.companyName || "Company Name"}</p>
+      <div style={{ display: "flex" }}>
+        <img style={{ height: 60, width: 30 }} src={item?.logoUrl} />
+        <div style={{ width: "100%", paddingLeft: "10px", fontSize: 20 }}>
+          <p style={{ marginTop: "-5px", color: "gray" }}>
+            {item?.companyName || "Company Name"}
+          </p>
+          <p style={{ marginTop: "-14px", fontSize: 20 }}>
+            {item?.jobRole || "Designation"}
+          </p>
+          <p
+            style={{ marginTop: "-15px", fontSize: 16, fontWeight: "initial" }}
+          >
+            {item?.location || "Location"}
+          </p>
+        </div>
+      </div>
+      <div style={{ display: "flex",justifyContent:"space-between", fontSize: 18 }}>
+        <p style={{width:"450px"}}>
+          Estimate Salary: {item?.minJdSalary || "upto "}
+          {item?.minJdSalary && "-"}
+          {item?.maxJdSalary} {item?.salaryCurrencyCode}
+        </p>
+        <img style={{ width: "100px",marginTop:"-12px" }} src={icons} />
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: any = {
   jobs: [],
+  filterJob: [],
 };
 
 const jobReducer = createSlice({
@@ -11,9 +12,12 @@ const jobReducer = createSlice({
     addJob: (state, action) => {
       action?.payload.forEach((item: Object) => state?.jobs.push(item));
     },
+    filteredJob: (state, action) => {
+      action?.payload.forEach((item: Object) => state?.filterJob.push(item));
+    },
   },
 });
 
-export const { addJob } = jobReducer.actions;
+export const { addJob, filteredJob } = jobReducer.actions;
 
 export default jobReducer.reducer;

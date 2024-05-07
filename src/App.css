@@ -3,11 +3,45 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px; /* Adjust gap to fit your design */
+}
+
+.selectFilter {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: #e5e7eb;
+  outline-style: none;
+  width: 100%;
+  color: #000000;
+  background-color: #ffffff;
+  transition-duration: 200ms;
+}
+
+.container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  max-width: 80rem;
+}
+.jobCard {
+  height: 500px;
+  width: 50vh;
+  background-color: lavender;
+  border-radius: 5px;
+  padding: 15px;
+  border: 3px;
+  border-color: black;
+  text-align: start;
 }
 
 .logo {
